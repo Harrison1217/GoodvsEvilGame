@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace GoodVsEvil
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            ProgramUI program = new ProgramUI();
+            program.run();
         }
+
     }
 }
