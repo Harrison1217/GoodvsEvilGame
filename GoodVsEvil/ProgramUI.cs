@@ -24,9 +24,9 @@ namespace GoodVsEvil
             string name = Console.ReadLine();
             charactorRepo.CreateCharactor(name);
             var charactor = charactorRepo.CharactorDetail();
-            Console.WriteLine($"\nSo you are {charactor.charactorName}\n");
+            Console.WriteLine($"\nSo you are {charactor.charactorName}");
             Console.ReadLine();
-            Console.WriteLine($"We need a name for your oppenent. Please give us a name for them...");
+            Console.WriteLine($"Enter Villians Name");
             string villianName = Console.ReadLine();
             villianRepo.CreateVillian(villianName);
             RunGame();
@@ -42,15 +42,17 @@ namespace GoodVsEvil
                               $"Villian Name:{villian.villianName}\n" + 
                               $"Health:1000\n" +
                               $"Defense: 25-50\n" +
-                              $"Attack Power:50-100\n");
+                              $"Attack Power:50-100\n\n" +
+                              $"Hit Enter\n");
             Console.ReadLine();
             RunGame();
         }
         private void RunGame()
         {
-            Console.WriteLine($"Now that we have you and your oppents Name.\n" +
-                              $"Please Select an Option\n" +
-                              $"1) Player and Villian Details\n" +
+            var charactor = charactorRepo.CharactorDetail();
+            var villian = villianRepo.VillianDetail();
+            Console.WriteLine($"Please Select an Option\n" +
+                              $"1) {charactor.charactorName} and {villian.villianName} Fight Details\n" +
                               $"2) Fight\n");
             int option = Convert.ToInt32(Console.ReadLine());
             if (option == 1)
@@ -82,9 +84,10 @@ namespace GoodVsEvil
                     int CharactorDamageTaken = villianRepo.CalculateDamage(villian.minDamage, villian.MaxkDamage) - charactorRepo.CalculateDefense(charactor.minDefense, charactor.MaxDefense);
                     charactor.healthPoints -= CharactorDamageTaken;
                     Console.WriteLine($"{charactor.charactorName} took {CharactorDamageTaken} damage \n" +
-                                      $"{villian.villianName} took: {VillianDamageTaken}\n" +
+                                      $"{villian.villianName} took: {VillianDamageTaken} damage\n" +
                                       $"{charactor.charactorName}'s Health:{charactor.healthPoints}\n" +
-                                      $"{villian.villianName}'s Health: {villian.villianHealth}");
+                                      $"{villian.villianName}'s Health: {villian.villianHealth}\n" +
+                                      $"Hit Enter");
                     Console.ReadLine();
                 }
                 else if (option == 2)
@@ -92,6 +95,11 @@ namespace GoodVsEvil
                     charactorRepo.CharactorHeal();
                     Console.WriteLine($"Healed Self for 100 points.\n" +
                                       $"{charactor.charactorName}'s Health:{charactor.healthPoints}");
+                    villian.villianHealth += 50;
+                    Console.WriteLine($"{villian.villianName} has healed themself for 50 points.\n" +
+                                      $"{villian.villianName}'s Health:{villian.villianHealth}\n" + 
+                                      $"Hit Enter");
+                    Console.ReadLine();
                 }
                
 
