@@ -69,7 +69,7 @@ namespace GoodVsEvil
             
             var charactor = charactorRepo.CharactorDetail();
             var villian = villianRepo.VillianDetail();
-            while (charactor.isAlive == true)
+            while (charactor.isAlive == true | villian.isAlive == true)
             {
                 Console.WriteLine($"\nSelect an option\n" +
                                   $"1) Attck\n" + 
@@ -109,6 +109,7 @@ namespace GoodVsEvil
 
                 if (villian.villianHealth <= 0)
                 {
+                    villian.isAlive = false;
                     Round2();
                 }
 
@@ -143,7 +144,7 @@ namespace GoodVsEvil
             villian.villianHealth = 1000;
             Console.ReadLine();
             Console.Clear();
-            while (charactor.isAlive == true)
+            while (charactor.isAlive == true | villian.isAlive == true)
             {
                 Console.WriteLine($"\nSelect an option\n" +
                                   $"1) Attck\n" +
@@ -183,6 +184,7 @@ namespace GoodVsEvil
 
                 if (villian.villianHealth <= 0)
                 {
+                    villian.isAlive = false;
                     storyMode();
                 }
 
