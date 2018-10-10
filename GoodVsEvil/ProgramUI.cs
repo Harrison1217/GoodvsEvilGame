@@ -198,6 +198,26 @@ namespace GoodVsEvil
             Console.Clear();
             InitialPrompt();
         }
+        private void storyMode()
+        {
+            var charactor = charactorRepo.CharactorDetail();
+            var villian = villianRepo.VillianDetail();
+            Console.WriteLine($"Welcome to Story Mode {charactor.charactorName}");
+            Console.ReadLine();
+            Console.WriteLine($"Well Im quite suprised that you made it through two rounds.\n" +
+                              $" Did not think you had it in you...Anyways" + 
+                              $"Well inorder for you to be able to make it through the next area you'll need some gold. \n" + 
+                              $"Its not much but it should at least get you around the city for a few days until you can find wokr.");
+            Console.ReadLine();
+            charactor.Gold = 100;
+            Console.WriteLine("Player is given 100 gold by Old Man ");
+            Console.ReadLine();
+            Console.WriteLine($"Ok {charactor.charactorName} Head east to the city, youll find a man named todd their. \n" +
+                              $"He will be your guid while in the city so advise asking him as many questions as possible. Good Luck on your journey");
+
+            EndGame();
+        }
+
         private void EndGame()
         {
             var charactor = charactorRepo.CharactorDetail();
@@ -207,11 +227,6 @@ namespace GoodVsEvil
             Console.ReadLine();
             Console.Clear();
             InitialPrompt();
-        }
-        private void storyMode()
-        {
-            StoryMode story = new StoryMode();
-           story.run();
         }
     }
 }

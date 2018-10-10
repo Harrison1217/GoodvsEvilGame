@@ -14,6 +14,7 @@ namespace GoodVsEvil
         public int minDefense { get; set; }
         public int MaxDefense { get; set; }
         public int healthPoints { get; set; }
-        public bool isAlive { get; set; }        
+        public bool isAlive { get; set; }   
+        public int Gold { get; set; }
     }
 }
