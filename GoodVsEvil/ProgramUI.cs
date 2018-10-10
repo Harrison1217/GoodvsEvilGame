@@ -213,9 +213,43 @@ namespace GoodVsEvil
             Console.WriteLine("Player is given 100 gold by Old Man ");
             Console.ReadLine();
             Console.WriteLine($"Ok {charactor.charactorName} Head east to the city, youll find a man named todd their. \n" +
-                              $"He will be your guid while in the city so advise asking him as many questions as possible. Good Luck on your journey");
-
+                              $"He will be your guid while in the city. So I advise asking him as many questions as possible. Good Luck on your journey");
+            Console.ReadLine();
+            City();
             EndGame();
+        }
+
+        private void City()
+        {
+            var charactor = charactorRepo.CharactorDetail();
+            var villian = villianRepo.VillianDetail();
+            Console.Clear();
+            Console.WriteLine($"Welcome {charactor.charactorName}\n" +
+                              $"Im Todd, You were told about me from the old Man...\n" +
+                              $"Thats right he told you to ask me questions and Ill have the Answer for you...\n" +
+                              $"Well Whats your Question?\n" +
+                              $"------------------------------ \n" +
+                              $"1) What is my Purpose? \n" +
+                              $"2) What can visit?\n" +
+                              $"3) Enter The City");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                Console.WriteLine($"Well Your Here to Quest. Find Gold, Fight Monsters, Join A Guild, Become a legend in the land...\n" +
+                                  $"In every city their are quests for you to find. Do this by approching people and talking with them.");
+            }
+            else if (choice == 2)
+            {
+                Console.WriteLine($"Here is a list of the Know Locations around the Area...\n" +
+                  $"(**) Means Current Location\n" +
+                  $"The City ** \n" +
+                  $"Small Town \n" +
+                  $"River Front \n" +
+                  $"Mountains \n" +
+                  $"Ocean Harbor \n" +
+                  $"You can Travel To one of these loctions listed. Many more to discover");
+                Console.ReadLine();
+            }              
         }
 
         private void EndGame()

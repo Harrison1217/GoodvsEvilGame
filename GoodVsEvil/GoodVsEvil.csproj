@@ -47,7 +47,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProgramUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoryMode.cs" />
     <Compile Include="Villian.cs" />
     <Compile Include="VillianRepository.cs" />
   </ItemGroup>
